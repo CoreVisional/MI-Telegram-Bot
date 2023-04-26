@@ -29,6 +29,7 @@ bot.start((ctx) => {
 
 // Code for /weather command
 bot.command("weather", async (ctx) => {
+    // Get the location from the message
     const location = ctx.message.text.split("/weather")[1]?.trim();
 
     if (location) {
@@ -63,6 +64,36 @@ bot.command("ipv4", async (ctx) => {
     } catch (error) {
         ctx.reply("Error: Unable to fetch your IP address.");
     }
+});
+
+// Code for /save_note command
+bot.command("save_note", (ctx) => {
+        // Get the note from the message
+        const note = ctx.message.text.split("/save_note")[1]?.trim();
+
+        if (note) {
+            try {
+                // Add note to the db.json file
+                db.get("notes").push({ id: Date.now(), content: note }).write();
+
+                // Get the total number of notes
+                const totalNotes = db.get("notes").size().value();
+
+                const noteWord = totalNotes === 1 ? "note" : "notes";
+
+                ctx.reply(
+                    `Your note has been saved successfully. \n\nYou have a total of ${totalNotes} ${noteWord} saved.`
+                );
+            } catch (error) {
+                ctx.reply(
+                    "Error: Unable to save the note. Please try again later."
+                );
+            }
+        } else {
+            ctx.reply(
+                'Error: Invalid format. Please use "/save_note {Your Message}"'
+            );
+        }
 });
 
 // Launch the bot
