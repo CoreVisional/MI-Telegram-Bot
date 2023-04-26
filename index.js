@@ -4,6 +4,9 @@ const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const axios = require("axios");
 
+// Load environment variables
+require("dotenv").config();
+
 // Setup database and bot
 const adapter = new FileSync("db.json");
 const db = low(adapter);
