@@ -36,8 +36,11 @@ To run the Telegram bot, run `node index.js` in your terminal.
 - #### /save_note (message)
     Run `/save_note Test` command in your Telegram bot to save your note.
 
+- #### /view_notes
+    Run `/view_notes` command in your Telegram bot to view all your saved notes.
+
 # TODO
 - [x] Create /weather command
 - [x] Create /ipv4 command
 - [x] Create /save_note command
-- [ ] Create /view_notes command
+- [x] Create /view_notes command
