@@ -34,7 +34,7 @@ bot.command("weather", async (ctx) => {
     if (location) {
         try {
             const response = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
+                `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${openweatherApiKey}&units=metric`
             );
 
             const weatherDescription = response.data.weather[0].description;
