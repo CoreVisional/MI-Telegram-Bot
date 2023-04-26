@@ -3,6 +3,7 @@ const { Telegraf } = require("telegraf");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const axios = require("axios");
+const { v4: uuidv4 } = require("uuid");
 
 // Load environment variables
 require("dotenv").config();
@@ -74,7 +75,7 @@ bot.command("save_note", (ctx) => {
         if (note) {
             try {
                 // Add note to the db.json file
-                db.get("notes").push({ id: Date.now(), content: note }).write();
+                db.get("notes").push({ id: uuidv4(), userID: ctx.message.from.id, content: note }).write();
 
                 // Get the total number of notes
                 const totalNotes = db.get("notes").size().value();
@@ -94,6 +95,26 @@ bot.command("save_note", (ctx) => {
                 'Error: Invalid format. Please use "/save_note (message)"'
             );
         }
+});
+
+// Code for /view_notes command
+bot.command("view_notes", (ctx) => {
+    const userID = ctx.message.from.id;
+
+    // Get notes associated with the user ID from the db.json file and store it in an array
+    const userNotes = db.get("notes").filter({ userID }).value();
+
+    // Check if the user has any notes
+    if (userNotes.length > 0) {
+        // Format the notes into readable, numbered list
+        const formattedNotes = userNotes
+            .map((note, index) => `${index + 1}. ${note.content}`)
+            .join("\n");
+
+        ctx.reply(`Your Saved Notes:\n\n${formattedNotes}`);
+    } else {
+        ctx.reply("You have no saved notes.");
+    }
 });
 
 // Launch the bot
