@@ -54,5 +54,16 @@ bot.command("weather", async (ctx) => {
     }
 });
 
+// IPv4 command
+bot.command("ipv4", async (ctx) => {
+    try {
+        const response = await axios.get("https://api.ipify.org");
+        const ipAddress = response.data;
+        ctx.reply(`Your IPv4 address is: ${ipAddress}`);
+    } catch (error) {
+        ctx.reply("Error: Unable to fetch your IP address.");
+    }
+});
+
 // Launch the bot
 bot.launch();
