@@ -23,7 +23,7 @@ const openweatherApiKey = `${process.env.OPENWEATHER_API_KEY}`;
 // Start bot
 bot.start((ctx) => {
     ctx.reply(
-        "Welcome! I am a bot that provides the following commands:\n\n/weather (Location)\n/ipv4\n/save_note (Your Message)\n/view_notes"
+        "Welcome! I am a bot that provides the following commands:\n\n/weather (location)\n/ipv4\n/save_note (message)\n/view_notes"
     );
 });
 
@@ -51,7 +51,7 @@ bot.command("weather", async (ctx) => {
             );
         }
     } else {
-        ctx.reply('Error: Invalid format. Please use "/weather {location}"');
+        ctx.reply('Error: Invalid format. Please use "/weather (location)"');
     }
 });
 
@@ -91,7 +91,7 @@ bot.command("save_note", (ctx) => {
             }
         } else {
             ctx.reply(
-                'Error: Invalid format. Please use "/save_note {Your Message}"'
+                'Error: Invalid format. Please use "/save_note (message)"'
             );
         }
 });
