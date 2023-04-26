@@ -32,17 +32,25 @@ bot.command("weather", async (ctx) => {
     const location = ctx.message.text.split("/weather")[1]?.trim();
 
     if (location) {
-
         try {
             const response = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
             );
 
             const weatherDescription = response.data.weather[0].description;
+            const weatherTemperature = response.data.main.temp;
+            const weatherHumidity = response.data.main.humidity;
 
+            ctx.reply(
+                `The weather in ${location} is ${weatherDescription} with a temperature of ${weatherTemperature}°C and humidity of ${weatherHumidity}%`
+            );
         } catch {
-            //
+            ctx.reply(
+                "Error: Unable to fetch weather data. Please check the location name and try again."
+            );
         }
+    } else {
+        ctx.reply('Error: Invalid format. Please use "/weather {location}"');
     }
 });
 
