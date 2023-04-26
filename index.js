@@ -27,7 +27,7 @@ bot.start((ctx) => {
     );
 });
 
-// Weather command
+// Code for /weather command
 bot.command("weather", async (ctx) => {
     const location = ctx.message.text.split("/weather")[1]?.trim();
 
@@ -54,7 +54,7 @@ bot.command("weather", async (ctx) => {
     }
 });
 
-// IPv4 command
+// Code for /ipv4 command
 bot.command("ipv4", async (ctx) => {
     try {
         const response = await axios.get("https://api.ipify.org");
