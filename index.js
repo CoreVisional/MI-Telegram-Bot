@@ -15,7 +15,7 @@ const db = low(adapter);
 db.defaults({ notes: [] }).write();
 
 // Create new bot instance
-const botToken = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // OpenWeather API Key
 const openweatherApiKey = `${process.env.OPENWEATHER_API_KEY}`;
