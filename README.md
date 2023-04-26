@@ -30,9 +30,11 @@ To run the Telegram bot, run `node index.js` in your terminal.
 - ### Weather
     Run `/weather Kuala Lumpur, MY` command in your Telegram bot to pull in the description of current weather in the specified location, the temperature, and humidity. The location can accept various location formats, but a more accurate result can be produced by specifying the city name and country code.
 
+- ### IPv4
+    Run `/ipv4` command in your Telegram bot to return the client IP Address
 
 # TODO
 - [x] Create /weather command
-- [ ] Create /ipv4 command
+- [x] Create /ipv4 command
 - [ ] Create /save_note command
 - [ ] Create /view_notes command
