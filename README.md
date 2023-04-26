@@ -1,4 +1,6 @@
-## Setup
+# Setup
+The setup instructions below assumes that you already have NodeJS installed in your device.
+
 1. Clone the repository\
 `git clone https://github.com/CoreVisional/MI-Telegram-Bot.git`
 
@@ -21,8 +23,16 @@
 
 8. To get your OpenWeather API Key, you have to register an account on [OpenWeather](https://openweathermap.org/)
 
-## TODO
-- [ ] Create /weather command
+# Usage
+To run the Telegram bot, run `node index.js` in your terminal.
+
+## Usage Examples 
+- ### Weather
+    Run `/weather Kuala Lumpur, MY` command in your Telegram bot to pull in the description of current weather in the specified location, the temperature, and humidity. The location can accept various location formats, but a more accurate result can be produced by specifying the city name and country code.
+
+
+# TODO
+- [x] Create /weather command
 - [ ] Create /ipv4 command
 - [ ] Create /save_note command
 - [ ] Create /view_notes command
