@@ -8,7 +8,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 // Setup database and bot
-const adapter = new FileSync("db.json");
+const adapter = new FileSync("database/db.json");
 const db = low(adapter);
 
 // Initiatize database with default structure
