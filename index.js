@@ -23,7 +23,7 @@ const openweatherApiKey = `${process.env.OPENWEATHER_API_KEY}`;
 // Start bot
 bot.start((ctx) => {
     ctx.reply(
-        "'Welcome! I am a bot that provides the following commands:\n/weather\n/ipv4\n/save_note {message}\n/view_notes'"
+        "Welcome! I am a bot that provides the following commands:\n\n/weather (Location)\n/ipv4\n/save_note (Your Message)\n/view_notes"
     );
 });
 
