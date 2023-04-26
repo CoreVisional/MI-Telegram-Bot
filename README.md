@@ -39,5 +39,5 @@ To run the Telegram bot, run `node index.js` in your terminal.
 # TODO
 - [x] Create /weather command
 - [x] Create /ipv4 command
-- [ ] Create /save_note command
+- [x] Create /save_note command
 - [ ] Create /view_notes command
