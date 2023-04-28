@@ -19,7 +19,7 @@ db.defaults({ notes: [] }).write();
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // OpenWeather API Key
-const openweatherApiKey = `${process.env.OPENWEATHER_API_KEY}`;
+const openweatherApiKey = process.env.OPENWEATHER_API_KEY;
 
 // Start bot
 bot.start((ctx) => {
